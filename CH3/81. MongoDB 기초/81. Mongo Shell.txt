@@ -1,0 +1,6 @@
+$ mongod
+
+$ mongo
+> show dbs
+> use chapter3
+> show collections

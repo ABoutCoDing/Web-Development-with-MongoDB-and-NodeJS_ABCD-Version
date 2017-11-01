@@ -1,0 +1,11 @@
+> db.newCollection.find()
+> db.newCollection.insert({name: 'Jason Krol', website: 'http://abcds.kr'})
+> db.newCollection.find().pretty()
+
+
+_id 필드는 고유값
+{
+        "_id" : ObjectId("59f94fab225e6f889ef54a3e"),
+        "name" : "Jason Krol",
+        "website" : "http://abcds.kr"
+}

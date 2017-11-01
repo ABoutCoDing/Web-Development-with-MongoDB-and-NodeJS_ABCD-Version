@@ -1,0 +1,2 @@
+> db.newCollection.remove({name: 'Jason Krol'})
+> db.newCollection.drop()

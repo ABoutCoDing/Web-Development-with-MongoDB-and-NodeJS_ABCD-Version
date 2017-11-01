@@ -1,0 +1,22 @@
+<script>
+    var myObject = {};  // 객체 선언
+    
+
+    var person = {};
+    person.firstName = 'Jason'; // . (dot) 얀산자를 이용한 방법
+    person['lastName'] = 'Krol'; // 대괄호를 이용한 방법
+    person.fullName = function() {  // 메소드 
+        return this.firstName + ' ' + this.lastName;
+    };
+    person.colors = ['red', 'blue', 'green'];  // 배열 프로퍼티
+
+
+    var book = {
+        title: 'Web Development with MongoDB and NodeJS',
+        author: 'Jason Krol',
+        publisher: 'Packt Publishing'
+    };
+    console.log(book.title);
+    book.pageCount = 150;
+
+</script>

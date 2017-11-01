@@ -1,0 +1,12 @@
+> db.newCollection.update({name: 'Jason Krol'}, {website:'http://test.com'})
+> db.newCollection.find({name: 'Jason Krol'})
+> db.newCollection.find()
+
+
+> db.newCollection.insert({name: 'Jason Krol', website: 'http://abcds.kr'})
+> db.newCollection.update({name: 'Jason Krol'}, { $set: {website: 'http://test2.com'}})
+> db.newCollection.find({name: 'Jason Krol'})
+
+
+> db.newCollection.update({name: 'joe'}, {name: 'joe', website: 'http://joe.com'}, {upsert: true})
+> db.newCollection.find({name: 'joe'})

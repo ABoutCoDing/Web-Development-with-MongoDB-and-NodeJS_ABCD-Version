@@ -1,0 +1,27 @@
+> db.newCollection.find({name: 'Jason Krol'})
+> db.newCollection.find({name: 'Jason Krol', 'website': 'http://abcds.kr'})
+
+> db.newCollection.find({name: 'Jason Krol'}, {name: true})
+> db.newCollection.find({name: 'Jason Krol'}, {name: true, _id: false})
+
+
+> db.newCollection.find({name: {$regex: 'Krol'}})
+
+
+
+> db.homework_scores.insert({name: 'A', score: 70})
+> db.homework_scores.insert({name: 'B', score: 80})
+> db.homework_scores.insert({name: 'B', score: 90})
+> db.homework_scores.insert({name: 'C', score: 85})
+> db.homework_scores.insert({name: 'D', score: 87})
+> db.homework_scores.find({ score: { $gte: 80, $lt: 90} })
+> db.homework_scores.findOne({ score: { $gte: 80, $lt: 90} })
+
+$lt (<)
+https://docs.mongodb.com/manual/reference/operator/query/lt/
+$gt (>)
+https://docs.mongodb.com/manual/reference/operator/query/gt/
+$lte (<=)
+https://docs.mongodb.com/manual/reference/operator/query/lte/
+$gte (>=)
+https://docs.mongodb.com/manual/reference/operator/query/gte/

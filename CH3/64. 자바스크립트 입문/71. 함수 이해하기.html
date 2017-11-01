@@ -1,0 +1,39 @@
+
+<script>
+    var myFunction = function() {
+        if (this.timesRun) 
+            this.timesRun += 1;
+        else
+            this.timesRun = 1;
+        console.log(this.timesRun);
+    };
+
+    myFunction();
+    myFunction();
+    myFunction();
+
+
+    // 기명함수(named function)와 함수표현식(function expression)
+    // function sayHello() {
+    //     console.log('Hello!');
+    // }
+
+    // var sayHello = function() {
+    //     console.log('Hello');
+    // };
+
+
+    // 호이스팅 (hoisting)
+    // one();
+    // two();
+
+    // function one() {
+    //     console.log('Hello! one');
+    // }
+
+    // var two = function() {
+    //     console.log('Hello! two');
+    // }
+    // two();
+
+</script>
