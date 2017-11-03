@@ -1,18 +1,18 @@
 <script>
     // case #1
-    var outer = 10;
-    function myFunction() {
-        var inner = 2;
-        console.log(inner);
-        console.log(outer);
-    }
-    myFunction();
+    // var outer = 10;
+    // function myFunction() {
+    //     var inner = 2;
+    //     console.log(inner);
+    //     console.log(outer);
+    // }
+    // myFunction();
 
     // case #2
-    // (function(){
-    //     (function() {
-    //         a = 10;
-    //     })();
-    // })();
-    // console.log(a);
+    (function(){
+        (function() {
+            a = 10;
+        })();
+    })();
+    console.log(a);
 </script>
