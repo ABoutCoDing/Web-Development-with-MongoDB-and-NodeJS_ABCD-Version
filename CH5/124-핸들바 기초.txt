@@ -1,0 +1,38 @@
+// 템플릿에 객체 바인딩
+
+var model = {
+    name: 'World'
+};
+
+<div>
+    Hello {{name}}
+</div>
+
+
+// 프리젠테이션 로직 삽입
+
+var model = {
+    name: 'World',
+    description: 'This will only appear because its set.'
+}
+
+<div>
+    Hello {{name}}!<br/><br/>
+    {{#if description}}
+        <p>{{description}}</p>
+    {{/if}}
+</div>
+
+
+var model = {
+    name: 'World'
+};
+
+<div>
+    Hello {{name}}!<br/><br/>
+    {{#unless description}}
+        <p>NOTE: no description found.</p>
+    {{/if}}
+</div>
+
+
