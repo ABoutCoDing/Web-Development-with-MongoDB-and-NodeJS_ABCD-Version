@@ -25,6 +25,6 @@ mongoose.connection.on('open', function() {
         this.firstname = parts[0],
         this.lastname = parts[1]
     })
-    // console.log(newUser.toObject({ virtuals: true })
+    console.log(newUser.fullname)
     console.log(newUser.toObject({virtuals: true}).fullname);
 });

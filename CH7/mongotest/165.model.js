@@ -15,9 +15,11 @@ var Account = new Schema({
 
 var AccountModel = mongoose.model('Account', Account);
 var newUser = new AccountModel({username: 'randomUser'});
+var newUser1 = new AccountModel({username: 'randomUser1'});
 console.log(newUser.username);
 console.log(newUser.date_created);
 console.log(newUser.visits);
 console.log(newUser.active);
 
 newUser.save();
+newUser1.save();

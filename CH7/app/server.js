@@ -6,7 +6,7 @@ var express = require('express');
 mongoose.connect('mongodb://localhost:27017/imgPloadr', { useMongoClient: true });
 mongoose.connection.on('open', function(){
     console.log('Mongoose connected.');
-})
+});
 mongoose.Promise = global.Promise;
 
 app.set('port', process.env.PORT || 3300);
