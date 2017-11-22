@@ -9,6 +9,8 @@ var express = require('express'),
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+// app.set(bodyParser.urlencoded()) // deprecated
+
 app.use(bodyParser.json());
 
 app.set('port', process.env.PORT || 3500);
@@ -39,7 +41,7 @@ router.post('/', function(req, res) {
         json.push(req.body);
         res.json(json);
     } else {
-        // res.json(500, {error: 'There was an error!'});
+        // res.json(500, {error: 'There was an error!'});   // deprecated
         res.status(500).json({error: 'There was an error!'});
     }
 });

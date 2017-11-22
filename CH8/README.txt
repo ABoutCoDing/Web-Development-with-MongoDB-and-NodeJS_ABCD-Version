@@ -9,3 +9,5 @@ app.use(bodyParser.urlencoded({
 
 
 express deprecated res.json(status, obj): Use res.status(status).json(obj) instead server.js:39:13
+
+$ npm install --save request

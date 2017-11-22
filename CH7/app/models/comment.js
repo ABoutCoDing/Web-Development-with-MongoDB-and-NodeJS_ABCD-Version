@@ -1,4 +1,4 @@
-var mongoose = require('mongoose')
+var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
@@ -11,7 +11,8 @@ var CommentSchema = new Schema({
     timestamp: {type: Date, default: Date.now}
 });
 
-CommentSchema.virtual('image').set(function(image) {
+CommentSchema.virtual('image')
+.set(function(image) {
     this._image = image;
 }).get(function() {
     return this._image;
