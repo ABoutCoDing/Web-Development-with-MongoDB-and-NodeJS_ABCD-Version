@@ -1,7 +1,11 @@
+/* jshint node: true */
+'use strict';
+
 var models = require('../models'),
     async = require('async');
 
 module.exports = function(callback) {
+
     async.parallel([
         function(next) {
             models.Image.count({}, next);
@@ -10,33 +14,33 @@ module.exports = function(callback) {
             models.Comment.count({}, next);
         },
         function(next) {
-            models.Image.aggregate({ $group: {
-                _id: true,
-                viewsTotal: {$sum: '$views'}
+            models.Image.aggregate({ $group : {
+                _id : '1',
+                viewsTotal : { $sum : '$views' }
             }}, function(err, result) {
-                var viewTotal = 0;
+                var viewsTotal = 0;
                 if (result.length > 0) {
-                    viewTotal += result[0].viewsTotal;
+                    viewsTotal += result[0].viewsTotal;
                 }
-                next(null, viewTotal);
+                next(null, viewsTotal);
             });
         },
         function(next) {
-            models.Image.aggregate({$group: {
-                _id: true,
-                likesTotal: {$sum: '$likes'}
-            }}, function(err, result) {
+            models.Image.aggregate({ $group : {
+                _id : '1',
+                likesTotal : { $sum : '$likes' }
+            }}, function (err, result) {
                 var likesTotal = 0;
-                if(result.length > 0) {
+                if (result.length > 0) {
                     likesTotal += result[0].likesTotal;
                 }
                 next(null, likesTotal);
             });
         }
-    ], function(err, results) {
+    ], function(err, results){
         callback(null, {
             images: results[0],
-            comments:results[1],
+            comments: results[1],
             views: results[2],
             likes: results[3]
         });
