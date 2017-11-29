@@ -48,24 +48,24 @@ app.use('/', router);
 
 
 // put
-router.put('/:id', function(req, res){
-    console.log(req.params.id)
-    if (req.params.id && req.body.Title && req.body.Director && req.body.Year && req.body.Rating) {
-        console.log(json)
-        _.each(json, function(elem, index) {
-            if (elem.Id == req.params.id) { 
-                elem.Title = req.body.Title;
-                elem.Director = req.body.Director;
-                elem.Year = req.body.Year;
-                elem.Rating = req.body.Rating;
-            }
-        });
-        res.json(json);
-    } else {
-        // res.json(500, {error: 'There was an error!'});
-        res.status(500).json({error: 'There was an error!'});
-    }
-}); 
+// router.put('/:id', function(req, res){
+//     console.log(req.params.id)
+//     if (req.params.id && req.body.Title && req.body.Director && req.body.Year && req.body.Rating) {
+//         console.log(json)
+//         _.each(json, function(elem, index) {
+//             if (elem.Id == req.params.id) { 
+//                 elem.Title = req.body.Title;
+//                 elem.Director = req.body.Director;
+//                 elem.Year = req.body.Year;
+//                 elem.Rating = req.body.Rating;
+//             }
+//         });
+//         res.json(json);
+//     } else {
+//         // res.json(500, {error: 'There was an error!'});
+//         res.status(500).json({error: 'There was an error!'});
+//     }
+// }); 
 
 
 // delete 
@@ -83,43 +83,43 @@ router.put('/:id', function(req, res){
 // })
 
 
-router.get('/external-api', function(req, res) {
-    request({
-        method: 'GET',
-        url: 'http://localhost:' + (process.env.PORT || 3500)
-    }, function(error, response, body) {
-        if (error) {throw error;}
-
-        var movies = [];
-        _.each(JSON.parse(body), function(elem, index) {
-            movies.push({
-                Title: elem.Title,
-                Rating: elem.Rating
-            });
-        });
-        res.json(_.sortBy(movies, 'Rating').reverse());
-    });
-});
-
-
-// router.get('/imdb', function(req, res) {
+// router.get('/external-api', function(req, res) {
 //     request({
 //         method: 'GET',
-//         url: 'http://sg.media-imdb.com/suggests/a/aliens.json'
-//     }, function(err, response, body) {
-//         var data = body.substring(body.indexOf('(')+1);
-//         data = JSON.parse(data.substring(0, data.length-1));
-//         var related = [];
-//         _.each(data.d, function(movie, index) {
-//             related.push({
-//                 Title: movie.l,
-//                 Year: movie.y,
-//                 Poster: movie.i ? movie.i[0] : ''
+//         url: 'http://localhost:' + (process.env.PORT || 3500)
+//     }, function(error, response, body) {
+//         if (error) {throw error;}
+
+//         var movies = [];
+//         _.each(JSON.parse(body), function(elem, index) {
+//             movies.push({
+//                 Title: elem.Title,
+//                 Rating: elem.Rating
 //             });
 //         });
-//         res.json(related);
+//         res.json(_.sortBy(movies, 'Rating').reverse());
 //     });
 // });
+
+
+router.get('/imdb', function(req, res) {
+    request({
+        method: 'GET',
+        url: 'http://sg.media-imdb.com/suggests/a/aliens.json'
+    }, function(err, response, body) {
+        var data = body.substring(body.indexOf('(')+1);
+        data = JSON.parse(data.substring(0, data.length-1));
+        var related = [];
+        _.each(data.d, function(movie, index) {
+            related.push({
+                Title: movie.l,
+                Year: movie.y,
+                Poster: movie.i ? movie.i[0] : ''
+            });
+        });
+        res.json(related);
+    });
+});
 
 
 

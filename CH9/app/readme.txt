@@ -1,5 +1,2 @@
-$ npm install mongoose --save
-
-$ npm install MD5 --save
-
-$ npm install async --save
+$ npm install -g mocha 		// 전역(global)으로 설치 
+$ npm install --save-dev chai chai-http
