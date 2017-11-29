@@ -12,7 +12,6 @@ config.mongoURI = {
 };
 
 mongoose.connect(config.mongoURI[app.settings.env], { useMongoClient: true }, function(err, res) {
-    // mongoose.connect('mongodb://localhost:27017/imgPloadr', { useMongoClient: true });
     mongoose.connection.on('open', function(){
         console.log('Mongoose connected.');
     });  
