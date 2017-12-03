@@ -17,7 +17,8 @@ describe('Server', function() {
         app = {
             set: sinon.spy(),
             get: sinon.stub().returns(3300),
-            listen: sinon.spy()
+            listen: sinon.spy(),
+            settings: {}
         },
         expressStub = sinon.stub().returns(app),
         configStub = sinon.stub().returns(app),
@@ -27,7 +28,7 @@ describe('Server', function() {
                 on: sinon.spy()
             }
         };
-        
+
         delete process.env.PORT;
     });
 
