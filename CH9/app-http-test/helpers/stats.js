@@ -10,7 +10,7 @@ module.exports = function(callback) {
             models.Comment.count({}, next);
         },
         function(next) {
-            models.Image.aggregate({ $group: {
+            models.Image.aggregate({$group: {
                 _id: true,
                 viewsTotal: {$sum: '$views'}
             }}, function(err, result) {
